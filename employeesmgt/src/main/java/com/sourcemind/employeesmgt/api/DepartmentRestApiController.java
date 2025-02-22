@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,7 +31,7 @@ public class DepartmentRestApiController {
     }
 
     @GetMapping
-    public DepartmentDto departmentList(){
-        return departmentService.getAllDepartments();
+   public ResponseEntity<List<DepartmentDto>>listDepartment(){
+        return ResponseEntity.ok(departmentService.getAllDepartments());
     }
 }

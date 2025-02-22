@@ -40,10 +40,9 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public DepartmentDto getAllDepartments() {
-
-//        Department department = departmentMapper.toEntity(departmentDto);
-        List <Department> departmentGetAlls = departmentRepository.findAll();
-        return departmentMapper.toDto((Department) departmentGetAlls);
+    public List<DepartmentDto> getAllDepartments() {
+        return departmentRepository.findAll().stream().map(departmentMapper::toDto).toList();
     }
+
+
 }
